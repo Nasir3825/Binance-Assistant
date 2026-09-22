@@ -11,8 +11,8 @@ class BinanceDataError(RuntimeError):
 
 
 BASE_URLS = (
-    "https://api.binance.com",
     "https://data-api.binance.vision",
+    "https://api.binance.com",
 )
 
 FUTURES_BASE_URLS = (
