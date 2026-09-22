@@ -62,7 +62,11 @@ def fetch_market_context(symbol: str, product: str = "spot") -> MarketContext:
         frame = fetch_closed_klines(symbol, interval=interval, limit=120, product=product)
         trends[interval] = classify_trend(frame)
 
-    ticker_base = "https://fapi.binance.com/fapi/v1" if product == "futures" else "https://api.binance.com/api/v3"
+    ticker_base = (
+    "https://fapi.binance.com/fapi/v1"
+    if product == "futures"
+    else "https://data-api.binance.vision/api/v3"
+    )
     ticker = _get_json(f"{ticker_base}/ticker/24hr", {"symbol": symbol})
 
     funding_rate = None
